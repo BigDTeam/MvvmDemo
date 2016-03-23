@@ -33,26 +33,31 @@ namespace Mvvm.ViewModel
             set
             {
                 Set(ref _welcomeTitle, value);
+             
             }
         }
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(IDataService dataService)
-        {
-            _dataService = dataService;
-            _dataService.GetData(
-                (item, error) =>
-                {
-                    if (error != null)
-                    {
-                        // Report error here
-                        return;
-                    }
+        //public MainViewModel(IDataService dataService)
+        //{
+        //    _dataService = dataService;
+        //    _dataService.GetData(
+        //        (item, error) =>
+        //        {
+        //            if (error != null)
+        //            {
+        //                // Report error here
+        //                return;
+        //            }
 
-                    WelcomeTitle = item.Title;
-                });
+        //            WelcomeTitle = item.Title;
+        //        });
+        //}
+        public MainViewModel(Person data)
+        {
+             WelcomeTitle =data.Name;
         }
 
         ////public override void Cleanup()
